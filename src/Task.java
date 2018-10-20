@@ -1,4 +1,4 @@
-public class Task {
+public class Task implements Comparable{
 
     private int p;//czas przetwarzania
     private int a; //kara za wczesniejsze wykonanie
@@ -18,7 +18,13 @@ public class Task {
     public int getP(){
         return p;
     }
+
     public String toString(){
         return "P: "+ getP() + " A: " +getA()+ " B: "+getB();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return Integer.compare(this.a, ((Task)o).getA());
     }
 }
