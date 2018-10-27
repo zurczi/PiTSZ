@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class FileReader {
    // private String defaultFilePath = "C:/test/";
-    private String defaultFilePath = "/test/";
+    public static final String defaultFilePath = "/test/";
     public ArrayList<String []> readFile(String fileName) {
         ArrayList<String[]> contentArray=new ArrayList<>();
             try {
@@ -17,6 +17,8 @@ public class FileReader {
         }
         return contentArray;
     }
+    public void readResolution(){
 
+    }
 
 }

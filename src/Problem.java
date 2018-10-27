@@ -1,12 +1,11 @@
 import java.util.ArrayList;
-import java.lang.Math.*;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
 public class Problem {
     private ArrayList<Task> taskArrayList = new ArrayList<>();
-    private int SUM_P;
+    private int SUM_P = 0;
     private int numberOfTask;
 
 
@@ -14,7 +13,7 @@ public class Problem {
         this.numberOfTask=numberOfTask;
         this.SUM_P=0;
     }
-    public ArrayList<Task> getTaskArrayList(String [] propeties) {
+    public ArrayList<Task> getTaskArrayList() {
         return taskArrayList;
     }
 
@@ -40,9 +39,8 @@ public class Problem {
         }
     }
 
-    public double resolve(double h){
+    public double countFunction(double h ,int time){
         int d = (int)(SUM_P * h);
-        int time=0;
         //tutaj jakis tam algorytm ale narazie jak leci
         float F=0;
         //obliczenie funkcji celu
@@ -50,6 +48,7 @@ public class Problem {
             time += t.getP();
             F += t.getA() * Math.max(d - time, 0) + t.getB() * Math.max(time - d, 0);
         }
+        //System.out.println(F);
         return F;
     }
 
@@ -72,9 +71,9 @@ public class Problem {
         taskArrayList.clear();
         taskArrayList.addAll(aSmallerThanB);
         taskArrayList.addAll(aGreaterThanB);
-        for(Task task : taskArrayList){
-            System.out.println(task.getP() +" "+task.getA()+" "+ task.getB());
-        }
+//        for(Task task : taskArrayList){
+//            System.out.println(task.getP() +" "+task.getA()+" "+ task.getB());
+//        }
 
     }
 

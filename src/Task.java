@@ -20,7 +20,7 @@ public class Task implements Comparable{
     }
 
     public String toString(){
-        return "P: "+ getP() + " A: " +getA()+ " B: "+getB();
+        return getP() + "\t" + getA() + "\t" + getB();
     }
 
     @Override
