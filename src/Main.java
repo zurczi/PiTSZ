@@ -12,7 +12,10 @@ public class Main {
             switch (choice) {
                 case 1:
                     Verifier verifier = new Verifier();
-                    verifier.verifyResolution("");
+                    System.out.println("Podaj nazwe pliku");
+                    String fileNameResult = bufferRead.readLine();
+                    fileNameResult="sch10_1_8.txt";
+                    verifier.verifyResolution(fileNameResult);
 
                     //walidacja
                     break;
@@ -37,6 +40,7 @@ public class Main {
                     String [] fileNames = {"sch10.txt","sch20.txt","sch50.txt","sch100.txt","sch200.txt","sch500.txt","sch1000.txt"};
                     double [] hTab = {0.2,0.4,0.6,0.8};
                     for(String file : fileNames) {
+
                         SolutionGenerator solGenerator = new SolutionGenerator(hTab, file);
                         solGenerator.readProblems();
                         solGenerator.processAllFile();

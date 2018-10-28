@@ -38,8 +38,9 @@ public class SolutionGenerator {
     public void resolveProblem(int k) {
         double F = 0;
         for (int i = 0; i < h.length; i++) {
-            problemsArrayList.get(k).scheduleTasks();
-            F = problemsArrayList.get(k).countFunction(h[i], 0);
+            problemsArrayList.get(k).scheduleTasks();//.scheduleTasks();
+            //int r = problemsArrayList.get(k).goalFunctionWithR(h[i]);
+            F = problemsArrayList.get(k).countFunction(h[i],0);
             printResultToFile(problemsArrayList.get(k).getNumberOfTask(), k, (int) (h[i] * 10), 0, F);
         }
     }
@@ -67,12 +68,9 @@ public class SolutionGenerator {
                 out.print("\n\n");
             } else {
                 out.print(goalFunction);
-               // System.out.print(goalFunction);
                 out.print("\t");
-                //System.out.print("\t");
                 if (next) {
                     out.print("\n");
-                  //  System.out.print("\n");
                 }
             }
             out.close();
@@ -85,7 +83,8 @@ public class SolutionGenerator {
         for (int k = 0; k < numberOfProblems; k++) { //dla kazdego problemu
             problemsArrayList.get(k).scheduleTasks();
             for (int i = 0; i < h.length; i++) { //dla kazdego h
-                double F = problemsArrayList.get(k).countFunction(h[i], 0);
+              //  int r = problemsArrayList.get(k).goalFunctionWithR(h[i]);
+                double F = problemsArrayList.get(k).countFunction(h[i],0);
                 printResultToFile(problemsArrayList.get(k).getNumberOfTask(), k, (int) (h[i] * 10), 0, F);
                 if (i == h.length - 1) {
                     printGoalFunctionToFile(F, true, false);
